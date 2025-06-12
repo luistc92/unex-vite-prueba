@@ -15,6 +15,7 @@ function App() {
         <div className="App">
           {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
         </div>
+        Hola
       </SignedIn>
     </header>
     
