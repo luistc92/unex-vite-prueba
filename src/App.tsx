@@ -1,24 +1,22 @@
 import "./App.css";
 import { useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { SignedIn } from '@clerk/clerk-react';
+import { Navbar } from './components/Navbar';
 
 function App() {
   const tasks = useQuery(api.tasks.get);
   return (
-    <header>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-        <div className="App">
-          {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
-        </div>
-        Hola
-      </SignedIn>
-    </header>
-    
+    <>
+      <Navbar />
+      <main>
+        <SignedIn>
+          <div className="App">
+            {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
+          </div>
+        </SignedIn>
+      </main>
+    </>
   );
 }
 
