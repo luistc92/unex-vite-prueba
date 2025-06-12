@@ -1,4 +1,3 @@
-import "./App.css";
 import { useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 import { SignedIn } from '@clerk/clerk-react';
@@ -11,7 +10,7 @@ function App() {
       <Navbar />
       <main>
         <SignedIn>
-          <div className="App">
+          <div className= "">
             {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
           </div>
         </SignedIn>
