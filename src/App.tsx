@@ -14,7 +14,9 @@ function App() {
           <div className= "">
             {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
           </div>
-          <TruckFreightTable/>
+          <div className="m-10 max-w-7xl mx-auto">
+            <TruckFreightTable/>
+          </div>
 
         </SignedIn>
       </main>
