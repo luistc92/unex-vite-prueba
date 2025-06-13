@@ -2,11 +2,11 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 
 export function Navbar() {
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
+    <nav className="flex justify-between items-center p-4 bg-white shadow-md">
+      <div>
         {/* Add your brand/logo here if needed */}
       </div>
-      <div className="navbar-auth">
+      <div className="flex items-center gap-1">
         <SignedOut>
           <SignInButton />
         </SignedOut>
@@ -17,3 +17,5 @@ export function Navbar() {
     </nav>
   );
 } 
+
+
