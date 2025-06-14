@@ -1,15 +1,12 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
-export function Navbar() {
+export function Navbar({ title }: { title: string }) {
   return (
     <nav className="flex justify-between items-center p-4 bg-white shadow-md">
-      <div>
-        {/* Add your brand/logo here if needed */}
+      <div className="font-bold text-lg">
+        {title}
       </div>
       <div className="flex items-center gap-1">
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
         <SignedIn>
           <UserButton />
         </SignedIn>

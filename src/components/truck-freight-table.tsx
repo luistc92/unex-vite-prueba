@@ -320,15 +320,15 @@ export default function TruckFreightTable() {
           border-color: #22c55e; /* Green border for adding new freight */
         }
       `}</style>
-      <Table>
-        <TableHeader>
+      <Table className="table-fixed w-full max-h-[calc(100vh-10rem)] overflow-y-auto block">
+        <TableHeader className="sticky top-0 z-10 bg-background">
           <TableRow>
             <TableHead className="w-1/6">Truck</TableHead>
             <TableHead className="w-1/2 text-center">Freights</TableHead>
             <TableHead className="text-center">Comments</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody >
           {trucks.map((truck) => (
             <TableRow key={truck.id} className="align-top">
               <TableCell className="font-medium">
@@ -672,6 +672,7 @@ export default function TruckFreightTable() {
             </TableRow>
           ))}
         </TableBody>
+       
       </Table>
     </div>
   )

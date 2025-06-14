@@ -4,23 +4,23 @@ import { SignedIn } from '@clerk/clerk-react';
 import { Navbar } from './components/Navbar';
 import TruckFreightTable from "./components/truck-freight-table";
 
+
 function App() {
   const tasks = useQuery(api.tasks.get);
   return (
-    <>
-      <Navbar />
+    <div className="h-screen flex flex-col">
       <main>
         <SignedIn>
-          <div className= "">
-            {tasks?.map(({ _id, text }) => <div key={_id}>{text}</div>)}
-          </div>
-          <div className=" m-10 px-4 sm:px-6 lg:px-8">
+          <header>
+            <Navbar title="Bitácora"/>
+          </header>
+          <div className="flex-1 min-h-0 overflow-auto m-10 px-4 sm:px-6 lg:px-8">
             <TruckFreightTable/>
           </div>
           
         </SignedIn>
       </main>
-    </>
+    </div>
   );
 }
 
