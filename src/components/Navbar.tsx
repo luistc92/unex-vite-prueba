@@ -1,4 +1,4 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import { SignedIn, UserButton } from '@clerk/clerk-react';
 
 export function Navbar({ title }: { title: string }) {
   return (

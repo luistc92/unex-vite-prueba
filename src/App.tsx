@@ -1,12 +1,9 @@
-import { useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
 import { SignedIn } from '@clerk/clerk-react';
 import { Navbar } from './components/Navbar';
-import TruckFreightTable from "./components/truck-freight-table";
+import TruckFreightTable from "./components/TruckFreightTable";
 
 
 function App() {
-  const tasks = useQuery(api.tasks.get);
   return (
     <div className="h-screen flex flex-col">
       <main>
