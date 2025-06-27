@@ -1,4 +1,4 @@
-import { SignedIn } from '@clerk/clerk-react';
+import { SignedIn, SignedOut, SignInButton } from '@clerk/clerk-react';
 import { Navbar } from './components/Navbar';
 import TruckFreightTable from "./components/TruckFreightTable";
 
@@ -14,8 +14,13 @@ function App() {
           <div className="flex-1 min-h-0 overflow-auto m-10 px-4 sm:px-6 lg:px-8">
             <TruckFreightTable/>
           </div>
-          
         </SignedIn>
+
+        <SignedOut>
+          <header>
+            <Navbar title="Bitácora"/>
+          </header>
+        </SignedOut>
       </main>
     </div>
   );
