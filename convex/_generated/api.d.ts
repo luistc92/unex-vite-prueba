@@ -13,6 +13,9 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as fletes from "../fletes.js";
+import type * as http from "../http.js";
+import type * as routers_fletesRouter from "../routers/fletesRouter.js";
 import type * as tasks from "../tasks.js";
 
 /**
@@ -24,6 +27,9 @@ import type * as tasks from "../tasks.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  fletes: typeof fletes;
+  http: typeof http;
+  "routers/fletesRouter": typeof routers_fletesRouter;
   tasks: typeof tasks;
 }>;
 export declare const api: FilterApi<

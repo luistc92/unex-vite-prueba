@@ -6,4 +6,10 @@ export default defineSchema({
     text: v.string(),
     isCompleted: v.boolean(),
   }),
+
+  fletes: defineTable({
+    cliente: v.string(),
+    id: v.float64(),
+  }),
 });
+
