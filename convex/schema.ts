@@ -9,7 +9,14 @@ export default defineSchema({
 
   fletes: defineTable({
     cliente: v.string(),
-    id: v.float64(),
-  }),
+    fleteId: v.float64(),
+    unidad: v.id("unidades")
+  })
+  .index("by_unidad", ["unidad"])
+  .index("by_fleteId", ["fleteId"]),
+
+  unidades: defineTable({
+    eco: v.string(),
+  })
 });
 

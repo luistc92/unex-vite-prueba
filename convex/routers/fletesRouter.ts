@@ -12,11 +12,11 @@ fletesRouter.route({
   handler: httpAction(async (ctx, request) => {
     console.log(request)
     const body = await request.json();
-    const { cliente, id } = body as { cliente: string; id: number };
-    
+    const { cliente, fleteId, unidad } = body 
     await ctx.runMutation(api.fletes.addFlete, {
       cliente,
-      id,
+      fleteId,
+      unidad,
     });
 
     return new Response(null, {
