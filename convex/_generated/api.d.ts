@@ -15,7 +15,10 @@ import type {
 } from "convex/server";
 import type * as fletes from "../fletes.js";
 import type * as fletesForCamunda from "../fletesForCamunda.js";
+import type * as google from "../google.js";
 import type * as http from "../http.js";
+import type * as importCities from "../importCities.js";
+import type * as importCitiesScript from "../importCitiesScript.js";
 import type * as schemaTypes from "../schemaTypes.js";
 import type * as tasks from "../tasks.js";
 
@@ -30,7 +33,10 @@ import type * as tasks from "../tasks.js";
 declare const fullApi: ApiFromModules<{
   fletes: typeof fletes;
   fletesForCamunda: typeof fletesForCamunda;
+  google: typeof google;
   http: typeof http;
+  importCities: typeof importCities;
+  importCitiesScript: typeof importCitiesScript;
   schemaTypes: typeof schemaTypes;
   tasks: typeof tasks;
 }>;

@@ -1,6 +1,6 @@
 import { httpRouter } from "convex/server";
 import { httpAction } from "./_generated/server";
-import { api } from "./_generated/api";
+import { api, internal } from "./_generated/api";
 
 const http = httpRouter();
 
@@ -10,11 +10,10 @@ http.route({
   path: "/addFleteFromCamunda",
   method: "POST",
   handler: httpAction(async (ctx, request) => {
-    console.log(request)
     const body = await request.json();
-    const { cliente, fleteId, eco } = body 
+    const { clienteId, fleteId, eco } = body
     await ctx.runMutation(api.fletesForCamunda.addFleteFromCamunda, {
-      cliente,
+      clienteId, // The mutation expects 'clienteId', not 'cliente'
       fleteId,
       eco,
     });
@@ -62,6 +61,19 @@ http.route({
     });
   })
 
+});
+
+http.route({
+  path: "/importCities",
+  method: "POST",
+  handler: httpAction(async (ctx, request) => {
+    const body = await request.json();
+    const result = await ctx.runAction(internal.importCitiesScript.importCitiesFromData, body);
+    return new Response(JSON.stringify(result), {
+      status: 200,
+      headers: { "Content-Type": "application/json" }
+    });
+  })
 });
 
 

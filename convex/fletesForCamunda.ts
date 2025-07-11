@@ -5,23 +5,27 @@ import { eco } from "./schemaTypes";
 
 export const addFleteFromCamunda = mutation({
   args: {
-    cliente: v.string(),
+    clienteId: v.id("clientes"),
     fleteId: v.float64(),
     eco: eco,
   },
   handler: async (ctx, args) => {
-    const { cliente, fleteId, eco } = args;
+    const { clienteId, fleteId, eco } = args;
     
     const unidad = await ctx.db.query("unidades")
       .filter(q => q.eq(q.field("eco"), eco))
       .unique();
 
-    if (!unidad) {
+    const cliente = await ctx.db.query("clientes")
+      .filter(q => q.eq(q.field("_id"), clienteId))
+      .unique();
+
+    if (!unidad || !cliente) {
       return [];
     }
 
     return await ctx.db.insert("fletes", {
-      cliente,
+      cliente: cliente._id,
       fleteId,
       unidad : unidad._id,
     });

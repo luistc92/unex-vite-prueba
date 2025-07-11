@@ -8,8 +8,13 @@ export default defineSchema({
     isCompleted: v.boolean(),
   }),
 
+  clientes: defineTable({
+    name: v.string(),
+    pagaVacio: v.boolean(),
+  }),
+
   fletes: defineTable({
-    cliente: v.string(),
+    cliente: v.id("clientes"),
     id: v.optional(v.number()),
     fleteId: v.optional(v.float64()),
     unidad: v.id("unidades")
@@ -28,13 +33,18 @@ export default defineSchema({
   }),
 
   tarifas: defineTable({
-    cliente: v.string(),
+    cliente: v.id("clientes"),
     vacio: v.boolean(),
     clienteEspecifico: v.string(),
-    origenFlete : v.string(),
-    destinoFlete: v.string(),
+    origen: v.id("ciudades"),
+    destino: v.id("ciudades"),
     tarifa: v.number(),
-    tramo: v.string(),
+  }),
+
+  tramos: defineTable({
+    ciudad1: v.id("ciudades"),
+    ciudad2: v.id("ciudades"),
+    distancia: v.number(),
   })
 
 });
